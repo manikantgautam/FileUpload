@@ -1,0 +1,29 @@
+<div class="wrapper">
+
+        <div class="form-group">
+                <label for="file">Choose File</label>
+                       <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" id="file" (change)="handleFileInput($event.target.files)" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                      </div>
+                       <span>Select Source</span>
+                       <select (change)="selectOption($event.target.value)" class="form-control">
+                               <option value="HR">Hr</option>
+                               <option value="SALES">Sales</option>
+                               <option value="IT">It</option>
+                               <option value="FINANCE">Finance</option>
+                        </select>
+            </div>
+            
+</div>
+<div class="overlay" *ngIf="loading">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span class="spinner"></span></div>
+        </div>
+    </div>

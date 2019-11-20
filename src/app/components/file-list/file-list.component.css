@@ -1,0 +1,19 @@
+p {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 200px;
+    margin-right: 0;
+  }
+
+  .table-striped{
+    width: 80%;
+    margin-left: 10%;
+  }
+  .upload-btn{
+      margin-left: 300px;
+  }
+  .fifty_percent{
+    width: 50%;
+    margin-left: 25%;
+  }

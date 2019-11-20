@@ -1,0 +1,38 @@
+<div style="padding:10px;">
+    <p class="p" style="float:left;">Files Uploaded From various sources are  </p>
+   
+    <button type="button" [routerLink]="['/uploadFiles']" (click)="!uploadFile" class="btn btn-primary upload-btn pull-right">Upload New File</button>
+   <br>  
+</div>
+    <table class="table table-striped" *ngIf="files && files.length>0">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">File Name</th>
+          <th scope="col">Source</th>
+          <th scope="col">Uploaded On</th>
+          <th scope="col"></th>    </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let file of files | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{file.fileName}}</td>
+          <td>{{file.source | uppercase}}</td>
+          <td>{{ file.uploadedOn  | date: 'dd/MM/yyyy'}}</td>
+          <td><a [href]="getHref(file.fileName)">Download</a></td>
+        </tr>
+       
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+    
+    <div style="display: block;" class="fifty_percent">
+      <canvas baseChart 
+        [data]="pieChartData" 
+        [labels]="pieChartLabels" 
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend">
+      </canvas>
+    </div>
